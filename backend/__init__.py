@@ -1,0 +1,1 @@
+"""DivyaYatra backend package."""
