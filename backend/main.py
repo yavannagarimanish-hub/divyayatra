@@ -3,6 +3,8 @@
 from fastapi import FastAPI
 
 from backend.database import Base, engine
+from backend.models import ChatHistory, Temple  # noqa: F401 - required for metadata discovery
+from backend.routes.chat import router as chat_router
 from backend.routes.temples import router as temple_router
 
 Base.metadata.create_all(bind=engine)
@@ -16,3 +18,4 @@ def health_check():
 
 
 app.include_router(temple_router)
+app.include_router(chat_router)
